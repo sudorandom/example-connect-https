@@ -32,11 +32,11 @@ func main() {
 
 	addr := "127.0.0.1:6660"
 	log.Printf("Starting connectrpc on %s", addr)
-	h3srv := http.Server{
+	srv := http.Server{
 		Addr:    addr,
 		Handler: mux,
 	}
-	if err := h3srv.ListenAndServeTLS("cert.crt", "cert.key"); err != nil {
+	if err := srv.ListenAndServeTLS("cert.crt", "cert.key"); err != nil {
 		log.Fatalf("error: %s", err)
 	}
 }
