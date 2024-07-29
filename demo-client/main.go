@@ -11,10 +11,7 @@ import (
 	elizav1 "buf.build/gen/go/connectrpc/eliza/protocolbuffers/go/connectrpc/eliza/v1"
 )
 
-const (
-	skipVerify = false
-	url        = "https://demo.connectrpc.com"
-)
+const url = "https://demo.connectrpc.com"
 
 var reqBody = &elizav1.SayRequest{Sentence: "Hello World!"}
 
