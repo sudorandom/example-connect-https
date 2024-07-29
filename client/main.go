@@ -15,17 +15,12 @@ import (
 const (
 	skipVerify = true
 	url        = "https://127.0.0.1:6660"
-
-	// skipVerify = false
-	// url        = "https://demo.connectrpc.com"
 )
 
 var reqBody = &elizav1.SayRequest{Sentence: "Hello World!"}
 
 func main() {
-	if skipVerify {
-		http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
-	}
+	http.DefaultTransport.(*http.Transport).TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 
 	svcClient := elizav1connect.NewElizaServiceClient(http.DefaultClient, url, connect.WithGRPC())
 
